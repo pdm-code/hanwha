@@ -61,8 +61,7 @@
   width: 100%;
   /* height: 256px; */
   background-color: #fff;
-  /* display: none; */
-  display: block;
+  display: none;
 }
 
 .header .container ul.header-menu > li:hover .sub-menu {
@@ -141,79 +140,197 @@
   color: #fa6600;
 }
 
-/* //sub-menu */
-
-.sub-menu .container .sub-menu-help {
+.sub-menu .container .sub-menu-left {
+  width: 400px;
+  flex-grow: 1;
   padding-left: 66px;
-  /* width: 50%; */
 }
 
-.sub-menu .container .sub-menu-help .help-join {
+.sub-menu .container .sub-menu-left .sub-menu-join {
   display: flex;
   align-items: center;
+  gap: 50px;
 }
 
-.sub-menu .container .sub-menu-help .help-join .help-join-text {
+.sub-menu .container .sub-menu-left .sub-menu-join .join-title {
   font-weight: 300;
-  color: #7E7C7A;
-  line-height: 1.5px;
+  color: rgb(126, 124, 122);
+  line-height: 1.5;
 }
 
-.sub-menu .container .sub-menu-help .help-join .help-join-tel {
+.sub-menu .container .sub-menu-left .sub-menu-join .join-tell {
   font-size: 30px;
   font-weight: 700;
-  color: #272B2F;
+  color: rgb(39, 43, 47);
+  line-height: 1.5;
 }
 
-.sub-menu .container .sub-menu-help .sub-menu-counseling {
+.sub-menu .container .sub-menu-left .link-wrap {
   display: flex;
-  /* justify-content: space-between; */
   margin-top: 32px;
   gap: 32px;
 }
 
-.sub-menu .container .sub-menu-help .sub-menu-counseling a {
+.sub-menu .container .sub-menu-left .link-wrap div span {
+  font-size: 16px;
+  font-weight: 300;
+  color: rgb(39, 43, 47);
+  line-height: 1.5;
+  margin-top: 8px;
+}
+
+.sub-menu .container .sub-menu-left .link-wrap div {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.sub-menu .container .sub-menu-help .sub-menu-counseling a img {
+.sub-menu .container .sub-menu-left .link-wrap div img {
   width: 44px;
   height: 44px;
 }
 
-.sub-menu .container .sub-menu-question {
-
+.sub-menu .container .sub-menu-right {
+  width: 50%;
 }
 
+.sub-menu .container .sub-menu-right ul li {
+  margin-bottom: 8px;
+}
 
+.sub-menu .container .sub-menu-right ul li a {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: rgb(94, 92, 90);
+}
 
-
-
-
-
-
-
-
+.sub-menu .container .sub-menu-right ul li a:hover {
+  color: rgb(250, 102, 0);
+}
 
 .header .container div.i-class {
   margin-left: 48px;
   font-size: 20px;
 }
+
 .header .container div.i-class .fa-bars {
   margin-left: 16px;
 }
 
 /* //header */
 .recomend {
-  height: 566px;
-  background-color: rgb(247, 247, 164);
+  /* height: 566px; */
+  /* background-color: rgb(247, 247, 164); */
 }
 
 .recomend .container {
-  background-color: rgb(211, 211, 135);
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 24px 64px;
+  gap: 80px;
 }
+
+.recomend .container .recomend-product:nth-of-type(1) {
+  margin-bottom: 32px;
+}
+
+.recomend .container .recomend-product div {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.recomend .container .recomend-product a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc((100% - 40px) / 3);
+  height: 104px;
+  padding: 1.125rem 0.75rem;
+  gap: 0.25rem;
+  border-radius: 1.25rem;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 20px 0px;
+}
+
+.recomend .container .recomend-left {
+  width: 58.25%;
+}
+
+.recomend .container .recomend-left .recomend-banner {
+  height: 413px;
+  border-radius: 20px;
+  width: 657px;
+  background-color: rgb(252, 132, 61);
+  /* padding: 2.5rem; */
+}
+
+.recomend .container p {
+  font-size: 22px;
+  font-weight: 700;
+  color: #272b2f;
+  margin-bottom: 16px;
+  line-height: 33px;
+}
+
+.recomend .container .swiper-wrapper {
+  height: 100%;
+}
+
+.recomend .swiper-slide .slide-title {
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #ffffff;
+  opacity: 0.8;
+}
+
+.recomend .swiper-slide .slide-content {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+.recomend .swiper-slide {
+  height: 100%;
+}
+.recomend .swiper-slide a {
+  position: relative;
+  height: 100%;
+  display: block;
+  padding: 2.5rem;
+}
+
+.recomend .swiper-slide .slide-look {
+  font-size: 18px;
+  font-weight: 400;
+  height: 56px;
+  color: #ffffff;
+  border-radius: 8px;
+  line-height: 56px;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0px 0.75rem 0px 1rem;
+  display: inline-block;
+  position: absolute;
+  left: 2.5rem;
+  bottom: 2.5rem;
+}
+
+.recomend .container .recomend-right img {
+  width: 40px;
+  height: 40px;
+}
+
+.recomend .container .recomend-right span {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #272b2f;
+}
+
+/* //recomend */
 
 .product {
   height: 748px;
