@@ -8,7 +8,15 @@
       type="image/x-icon"
       href="https://static.hanwhalife.com/static/shared/favicon/favicon.ico"
     /> -->
-
+    <!-- //jquery 선언문 -->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <!-- swiper-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+    <!-- css -->
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link
@@ -16,6 +24,39 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
     />
     <title>한화생명 다이렉트</title>
+
+    <script>
+      $(document).ready(function () {
+        var swiper = new Swiper(".recomend-banner", {
+          pagination: {
+            el: ".recomend-banner .swiper-pagination",
+            clickable: true, // 클릭하여 슬라이드 컨트롤을 가능케 함. default는 false임.
+          },
+          loop: true,
+          // 자동 재생
+          autoplay: {
+            delay: 3000, // 슬라이드 이동 시간 간격
+            disableOnInteraction: false, // 버튼을 이용하여 컨트롤 한 이후에도 자동 재생 유지되도록
+          },
+        });
+
+        $(".recomend .swiper-controls").click(function () {
+          if (swiper.autoplay.running) {
+            swiper.autoplay.stop();
+            $(".recomend .swiper-controls").css(
+              "background-image",
+              "url(/assets/img/play.svg)"
+            );
+          } else {
+            swiper.autoplay.start();
+            $(".recomend .swiper-controls").css(
+              "background-image",
+              "url(/assets/img/stop.svg)"
+            );
+          }
+        });
+      });
+    </script>
   </head>
   <body>
     <header class="header">
@@ -124,20 +165,74 @@
           <p>오늘의 추천</p>
           <div class="recomend-banner swiper-container">
             <ul class="swiper-wrapper">
-              <li class="swiper-slide">
+              <li class="swiper-slide slide1">
                 <a href="">
                   <p class="slide-title">e시그니처암보험(무) 비갱신</p>
                   <p class="slide-content">
                     보험료 인상 없이 <br />암진단•수술•치료보장
                   </p>
                   <div class="slide-look">자세히 보기</div>
+                  <img
+                    alt="보험료 인상 없이 암진단•수술•치료보장 e시그니처암보험(무) 비갱신"
+                    src="https://static.hanwhalife.com/static/hlp/direct/images/banner/banner_dw_in_000005.svg"
+                  />
                 </a>
               </li>
-              <li class="swiper-slide"><a href=""></a></li>
-              <li class="swiper-slide"><a href=""></a></li>
-              <li class="swiper-slide"><a href=""></a></li>
-              <li class="swiper-slide"><a href=""></a></li>
+              <li class="swiper-slide slide2">
+                <a href="">
+                  <p class="slide-title">디딤돌저축보험(무)</p>
+                  <p class="slide-content">
+                    100% 원금 보장과 <br />확정금리 5%로 든든하게
+                  </p>
+                  <div class="slide-look">자세히 보기</div>
+                  <img
+                    alt="100% 원금 보장과 확정금리 5%로 든든하게 디딤돌저축보험(무)"
+                    src="https://static.hanwhalife.com/static/hlp/direct/images/banner/banner_dw_in_000006.svg"
+                  />
+                </a>
+              </li>
+              <li class="swiper-slide slide3">
+                <a href="">
+                  <p class="slide-title">e정기보험(무)</p>
+                  <p class="slide-content">
+                    건강고객 조건 충족시 <br />보험료 최대 20% 할인
+                  </p>
+                  <div class="slide-look">자세히 보기</div>
+                  <img
+                    alt="건강고객 조건 충족시 보험료 최대 20% 할인 e정기보험(무)"
+                    src="https://static.hanwhalife.com/static/hlp/direct/images/banner/banner_dw_in_000009.svg"
+                  />
+                </a>
+              </li>
+              <li class="swiper-slide slide4">
+                <a href="">
+                  <p class="slide-title">e암보험(비갱신)(무)</p>
+                  <p class="slide-content">
+                    비흡연자 할인으로 <br />보험료 최대 32.5% 할인
+                  </p>
+                  <div class="slide-look">자세히 보기</div>
+                  <img
+                    alt="비흡연자 할인으로 보험료 최대 32.5% 할인 e암보험(비갱신)(무)"
+                    src="https://static.hanwhalife.com/static/hlp/direct/images/banner/banner_dw_in_000010.svg"
+                  />
+                </a>
+              </li>
+              <li class="swiper-slide slide5">
+                <a href="">
+                  <p class="slide-title">보험계약대출</p>
+                  <p class="slide-content">
+                    보험 보장은 그대로 <br />3분 안에 대출 바로 받기
+                  </p>
+                  <div class="slide-look">자세히 보기</div>
+                  <img
+                    alt="보험 보장은 그대로 3분 안에 대출 바로 받기 보험계약대출"
+                    src="https://static.hanwhalife.com/static/hlp/direct/images/banner/banner_dw_lo_000002.svg"
+                  />
+                </a>
+              </li>
             </ul>
+            <div class="swiper-pagination recomend-banner-pagination"></div>
+            <button class="swiper-controls"></button>
           </div>
         </div>
         <!-- //left -->
@@ -213,7 +308,90 @@
       </div>
     </section>
     <section class="product">
-      <div class="container"></div>
+      <div class="container">
+        <div class="product-header">
+          <div class="product-header-left">
+            <p>찾으시는 상품이 있나요?</p>
+            <p>생년월일, 성별을 입력하시면 상품을 추천해 드려요.</p>
+          </div>
+          <div class="product-header-right">
+            <input type="number" placeholder="예&#41; 19870628" />
+            <div class="input-gender">
+              <label for="male">
+                <input type="radio" name="gender" value="female" id="male" />
+                <span>남자</span>
+              </label>
+              <label for="female">
+                <input type="radio" name="gender" value="male" id="female" />
+                <span>여자</span>
+              </label>
+            </div>
+            <button type="button">상품 추천받기</button>
+          </div>
+        </div>
+        <div class="product-menu">
+          <a href="">
+            <div>
+              <img
+                src="https://api.hanwhalife.com/tom/images/zL4l0P3.png"
+                alt="사망"
+              />
+              <p>사망</p>
+              <div>new</div>
+            </div>
+            <p>
+              선택한 기간 동안만 사망보험금 <br />
+              보장받아 실속있는 정기보험
+            </p>
+            <p>사망보장·실속준비</p>
+          </a>
+          <a href="">
+            <div>
+              <img
+                src="https://api.hanwhalife.com/tom/images/zL4l0P3.png"
+                alt="사망"
+              />
+              <p>사망</p>
+              <div>new</div>
+            </div>
+            <p>
+              선택한 기간 동안만 사망보험금 <br />
+              보장받아 실속있는 정기보험
+            </p>
+            <p>사망보장·실속준비</p>
+          </a>
+          <a href="">
+            <div>
+              <img
+                src="https://api.hanwhalife.com/tom/images/zL4l0P3.png"
+                alt="사망"
+              />
+              <p>사망</p>
+              <div>new</div>
+            </div>
+            <p>
+              선택한 기간 동안만 사망보험금 <br />
+              보장받아 실속있는 정기보험
+            </p>
+            <p>사망보장·실속준비</p>
+          </a>
+          <a href="">
+            <div>
+              <img
+                src="https://api.hanwhalife.com/tom/images/zL4l0P3.png"
+                alt="사망"
+              />
+              <p>사망</p>
+              <div>new</div>
+            </div>
+            <p>
+              선택한 기간 동안만 사망보험금 <br />
+              보장받아 실속있는 정기보험
+            </p>
+            <p>사망보장·실속준비</p>
+          </a>
+        </div>
+      </div>
     </section>
     <section class="notice">
       <div class="container"></div>
