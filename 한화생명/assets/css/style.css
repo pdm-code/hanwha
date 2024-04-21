@@ -415,7 +415,7 @@
 
 .product {
   /* height: 748px; */
-  /* background-color: beige; */
+  background-color: #F5F5F5;
 }
 
 .product .container {
@@ -424,6 +424,8 @@
 
 .product .product-header {
   display: flex;
+  min-height: 88px;
+  margin-bottom: 40px;
 }
 
 .product .product-header .product-header-left {
@@ -434,6 +436,7 @@
   font-size: 30px;
   font-weight: 700;
   line-height: 1.5;
+  margin-bottom: 8px;
 }
 
 .product .product-header .product-header-left p:nth-of-type(2) {
@@ -445,7 +448,8 @@
 
 .product .product-header .product-header-right {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  gap: 12px;
 }
 
 .product .product-header .product-header-right input[type="number"] {
@@ -469,6 +473,7 @@
   font-size: 18px;
   color: #403f3e;
   line-height: 1.5;
+  background-color: #fff;
 }
 
 .product
@@ -555,11 +560,59 @@
 
 .product .product-menu a {
   width: calc((100% - 48px) / 3);
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 20px 0px;
 }
 
-.product .product-menu a div {
+.product .product-menu a > div {
   display: flex;
   align-items: center;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+
+.product .product-menu a div img {
+  width: 28px;
+  height: 28px;
+}
+
+.product .product-menu a > div > p {
+  font-size: 16px;
+  font-weight: 300;
+  color: #403F3E;
+  line-height: 1.5;
+}
+
+.product .product-menu a div .new-box {
+  background-color: #FF8F4C;
+  font-weight: 700;
+  height: 28px;
+  padding: 1px 12px 0px;
+  color: #ffffff;
+  line-height: 28px;
+  border-radius: 100px;
+  font-size: 14px;
+  margin-left: 4px;
+}
+
+.product .product-menu a > p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 52px;
+} 
+
+.product .product-menu a > span {
+  color: #7E7C7A;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.product .product-menu a:hover {
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 6px 24px 0px;
+  transition: transform 0.2s ease-out 0s, box-shadow 0.2s ease-out 0s;
+  transform: translateY(-4px);
 }
 
 /* //product */
