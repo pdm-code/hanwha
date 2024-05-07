@@ -41,7 +41,11 @@
 a {
   text-decoration: none;
   color: inherit;
-  /* display: inline-block; */
+  display: inline-block;
+}
+
+span {
+  display: inline-block;
 }
 
 input::-webkit-outer-spin-button,

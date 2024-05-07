@@ -27,7 +27,7 @@
 
     <script>
       $(document).ready(function () {
-        var swiper = new Swiper(".recomend-banner", {
+        var recomendBanner = new Swiper(".recomend-banner", {
           pagination: {
             el: ".recomend-banner .swiper-pagination",
             clickable: true, // 클릭하여 슬라이드 컨트롤을 가능케 함. default는 false임.
@@ -41,14 +41,14 @@
         });
 
         $(".recomend .swiper-controls").click(function () {
-          if (swiper.autoplay.running) {
-            swiper.autoplay.stop();
+          if (recomendBanner.autoplay.running) {
+            recomendBanner.autoplay.stop();
             $(".recomend .swiper-controls").css(
               "background-image",
               "url(/assets/img/play.svg)"
             );
           } else {
-            swiper.autoplay.start();
+            recomendBanner.autoplay.start();
             $(".recomend .swiper-controls").css(
               "background-image",
               "url(/assets/img/stop.svg)"
@@ -57,11 +57,33 @@
         });
 
         // 하단 슬라이드 스크립트
-        ////////
+        var swiper = new Swiper(".notice-banner-right", {
+          pagination: {
+            el: ".recomend-banner .swiper-pagination",
+            clickable: true, // 클릭하여 슬라이드 컨트롤을 가능케 함. default는 false임.
+          },
+          loop: true,
+          // 자동 재생
+          autoplay: {
+            delay: 3000, // 슬라이드 이동 시간 간격
+            disableOnInteraction: false, // 버튼을 이용하여 컨트롤 한 이후에도 자동 재생 유지되도록
+          },
+        });
+
+        $("i.fa-bars").click(function () {
+          $(".header-menu, .i-class").hide();
+          $(".header-click, .header-background").show();
+        });
+
+        $(".header-control button").click(function () {
+          $(".header-menu, .i-class").show();
+          $(".header-click, .header-background").hide();
+        });
       });
     </script>
   </head>
   <body>
+    <div class="header-background"></div>
     <header class="header">
       <div class="container">
         <a href="">
@@ -159,6 +181,55 @@
         <div class="i-class">
           <i class="far fa-user"></i>
           <i class="fas fa-bars"></i>
+        </div>
+      </div>
+      <div class="header-click">
+        <div class="container">
+          <div class="header-control">
+            <a href="">공시실</a>
+            <a href="">앱다운로드</a>
+            <button type="button"></button>
+          </div>
+          <div>
+            <p class="header-click-title">전체상품</p>
+            <div class="product-menu">
+              <div class="product-left">
+                <span>보험</span>
+                <ul>
+                  <li><a href="">암보험</a></li>
+                  <li><a href="">건강보험</a></li>
+                  <li><a href="">사망보험</a></li>
+                  <li><a href="">저축·연금보험</a></li>
+                  <li><a href="">유병자보험</a></li>
+                  <li><a href="">치아보험</a></li>
+                </ul>
+              </div>
+              <div class="product-right">
+                <span>대출</span>
+                <ul>
+                  <li><a href="">보험계약대출</a></li>
+                  <li><a href="">신용대출</a></li>
+                  <li><a href="">담보대출</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p class="header-click-title">고객센터</p>
+            <ul>
+              <li><a href="">자주묻는질문</a></li>
+              <li><a href="">상담하기</a></li>
+              <li><a href="">지점찾기</a></li>
+              <li><a href="">보험가입안내</a></li>
+              <li><a href="">보험용어사전</a></li>
+            </ul>
+          </div>
+          <div>
+            <a href="" class="header-click-title">공지사항</a>
+          </div>
+          <div>
+            <a href="" class="header-click-title">이벤트·혜택</a>
+          </div>
         </div>
       </div>
     </header>
@@ -547,44 +618,48 @@
             <a href="">이메일수집거부</a>
           </li>
         </ul>
-        <!-- //footer-header -->
+        <!-- // footer-header -->
         <div class="footer-content">
           <div class="footer-content-left">
-            <div class="company-info">
-              <p>한화생명보험 주식회사</p>
-              <p>사업자등록번호 116-81-11757</p>
-              <p>대표이사 여승주</p>
+            <div>
+              <span>한화생명보험 주식회사</span>
+              <span>사업자등록번호 116-81-11757</span>
+              <span>대표이사 여승주</span>
             </div>
-            <div class="company-adress">
-              <address>주소 07345 서울시 영등포구 63로 50 (여의도동, 63 한화생명빌딩)</address>
-              <p>대표번호1588-6363</p>
+            <div>
+              <address>
+                주소 07345 서울시 영등포구 63로 50 (여의도동, 63 한화생명빌딩)
+              </address>
+              <span>대표번호1588-6363</span>
             </div>
             <div>Ⓒ HANWHA LIFE Corp. All Rights Reserved.</div>
           </div>
           <div class="footer-content-right">
-            <p class="footer-direct">다이렉트 가입문의</p>
-            <p class="footer-number">1544-6385</p>
+            <p>다이렉트 가입문의</p>
+            <span>1544-6385</span>
           </div>
         </div>
+        <!-- //footer-content -->
         <div class="footer-mark">
           <div class="footer-mark-left">
-            <div>
-              <a href="#">
-                <img src="https://static.hanwhalife.com/static/direct/content-footer/wa-mark.png" alt="">
-              </a>
-              <p>웹 접근성 인증마크<br>10년 연속 획득</p>
-            </div>
-            <div>
-              <a href="#">
-                <img src="https://static.hanwhalife.com/static/direct/content-footer/isms-p-mark.png" alt="">
-              </a>
-              <p>개인정보보호<br>관리체계 인증</p>
-            </div>
+            <a href="">
+              <img
+                src="https://static.hanwhalife.com/static/direct/content-footer/wa-mark.png"
+                alt=""
+              />
+            </a>
+            <p>웹 접근성 인증마크 <br />10년 연속 획득</p>
+            <a href="">
+              <img
+                src="https://static.hanwhalife.com/static/direct/content-footer/isms-p-mark.png"
+                alt=""
+              />
+            </a>
+            <p>개인정보보호 <br />관리체계 인증</p>
           </div>
-          <div class="footer-mark-right">
-            <button>Family Site</button>
-          </div>
+          <button>Family site</button>
         </div>
+        <!-- //footer-mark -->
       </div>
     </footer>
   </body>
