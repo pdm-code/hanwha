@@ -38,8 +38,9 @@
             delay: 3000, // 슬라이드 이동 시간 간격
             disableOnInteraction: false, // 버튼을 이용하여 컨트롤 한 이후에도 자동 재생 유지되도록
           },
+          spaceBetween: 8, // 슬라이드 사이 여백
         });
-
+        // 오늘의 추천 재생 이벤트
         $(".recomend .swiper-controls").click(function () {
           if (recomendBanner.autoplay.running) {
             recomendBanner.autoplay.stop();
@@ -57,9 +58,9 @@
         });
 
         // 하단 슬라이드 스크립트
-        var swiper = new Swiper(".notice-banner-right", {
+        var noticebanner = new Swiper(".notice-banner-right", {
           pagination: {
-            el: ".recomend-banner .swiper-pagination",
+            el: ".notice-banner-right .swiper-pagination",
             clickable: true, // 클릭하여 슬라이드 컨트롤을 가능케 함. default는 false임.
           },
           loop: true,
@@ -68,8 +69,26 @@
             delay: 3000, // 슬라이드 이동 시간 간격
             disableOnInteraction: false, // 버튼을 이용하여 컨트롤 한 이후에도 자동 재생 유지되도록
           },
+          spaceBetween: 8, // 슬라이드 사이 여백
+        });
+        // 하단 배너 재생 이벤트
+        $(".notice .swiper-controls").click(function () {
+          if (noticebanner.autoplay.running) {
+            noticebanner.autoplay.stop();
+            $(".notice .swiper-controls").css(
+              "background-image",
+              "url(/assets/img/play.svg)"
+            );
+          } else {
+            noticebanner.autoplay.start();
+            $(".notice .swiper-controls").css(
+              "background-image",
+              "url(/assets/img/stop.svg)"
+            );
+          }
         });
 
+        // 전체 메뉴 클릭 이벤트
         $("i.fa-bars").click(function () {
           $(".header-menu, .i-class").hide();
           $(".header-click, .header-background").show();
@@ -78,6 +97,17 @@
         $(".header-control button").click(function () {
           $(".header-menu, .i-class").show();
           $(".header-click, .header-background").hide();
+        });
+
+        // footer 패밀리 사이트 클릭 이벤트
+        $(".footer-mark button").click(function () {
+          // if ($(this).hasClass("on")) {
+          //   $(this).removeClass("on");
+          // } else {
+          //   $(this).addss(Cla"on");
+          // } --> 방법1
+
+          $(this).toggleClass("on");
         });
       });
     </script>
@@ -225,10 +255,10 @@
             </ul>
           </div>
           <div>
-            <a href="" class="header-click-title">공지사항</a>
+            <a href="" class="header-click-title hover">공지사항</a>
           </div>
           <div>
-            <a href="" class="header-click-title">이벤트·혜택</a>
+            <a href="" class="header-click-title hover">이벤트·혜택</a>
           </div>
         </div>
       </div>
@@ -533,7 +563,7 @@
               alt="온라인 보험 가입하면 네이버페이 상품권 지급!"
             />
           </a>
-          <div class="notice-banner-right">
+          <div class="notice-banner-right swiper-container">
             <ul class="swiper-wrapper">
               <li class="swiper-slide slide1">
                 <a href="">
@@ -583,6 +613,8 @@
                 </a>
               </li>
             </ul>
+            <div class="swiper-pagination notice-banner-pagination"></div>
+            <button class="swiper-controls"></button>
           </div>
         </div>
       </div>
@@ -657,7 +689,15 @@
             </a>
             <p>개인정보보호 <br />관리체계 인증</p>
           </div>
-          <button>Family site</button>
+          <button type="button">Family Site</button>
+          <ul>
+            <li><a href="#">한화생명</a></li>
+            <li><a href="#">한화손해보험</a></li>
+            <li><a href="#">한화저축은행</a></li>
+            <li><a href="#">한화자산운용</a></li>
+            <li><a href="#">한화투자증권</a></li>
+            <li><a href="#">캐롯손해보험</a></li>
+          </ul>
         </div>
         <!-- //footer-mark -->
       </div>
