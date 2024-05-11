@@ -1,7 +1,7 @@
 @charset "utf-8";
-.flex-1 {
+/* .flex-1 {
   flex: 1;
-}
+} */
 
 .container {
   max-width: 1176px;
@@ -36,6 +36,10 @@
   height: 100%;
 }
 
+.header .container > a {
+  width: 50%;
+}
+
 .header .container a img {
   vertical-align: middle;
 }
@@ -44,11 +48,14 @@
   display: flex;
   align-items: center;
   height: inherit;
+  flex: 1;
+  justify-content: space-between;
+  margin-left: -0.5rem;
   /* display: none; */
 }
 .header .container ul.header-menu > li {
   height: inherit;
-  margin-left: 36px;
+  /* margin-left: 36px; */
 }
 
 .header .container ul.header-menu > li:nth-of-type(1) {
@@ -81,9 +88,10 @@
 
 .header .container ul.header-menu > li:hover .sub-menu {
   display: block;
+  z-index: 100;
 }
 
-.sub-menu .container {
+.header .container ul.header-menu > li:hover .sub-menu .container {
   padding: 40px 24px 64px;
   align-items: flex-start;
 }
@@ -198,6 +206,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
 }
 
 .sub-menu .container .sub-menu-left .link-wrap div img {
@@ -226,13 +235,20 @@
 
 .header .container div.i-class {
   margin-left: 48px;
-  font-size: 20px;
+  display: flex;
+  gap: 16px;
   /* display: none; */
 }
 
-.header .container div.i-class .fa-bars {
-  margin-left: 16px;
+.header .container div.i-class img {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
 }
+
+/* .header .container div.i-class .fa-bars {
+  margin-left: 16px;
+} */
 
 .header .header-click {
   background-color: #fff;
@@ -377,6 +393,12 @@
   gap: 0.25rem;
   border-radius: 1.25rem;
   box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 20px 0px;
+}
+
+.recomend .container .recomend-product a:hover {
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 6px 24px 0px;
+  transition: transform 0.2s ease-out 0s, box-shadow 0.2s ease-out 0s;
+  transform: translateY(-4px);
 }
 
 .recomend .container .recomend-left {
@@ -780,6 +802,11 @@
   font-weight: 300;
 }
 
+.notice .container .notice-left ul li a:hover div {
+  color: #fa6600;
+  transition: color 0.2s ease-out;
+}
+
 .notice .container .notice-left ul li a div {
   font-size: 18px;
   color: #272b2f;
@@ -814,6 +841,11 @@
   padding: 0 16px;
   border-radius: 8px;
   /* background-color: #ffffff; */ /* ? 왜넣었누?*/
+}
+
+.notice .container .notice-right a:hover {
+  background-color: #f5f5f5;
+  transition: background-color 0.2s ease-out;
 }
 
 .notice .container .notice-right a img {
@@ -1028,7 +1060,7 @@
 .footer .container .footer-header {
   display: flex;
   gap: 12px 20px;
-  margin-bottom: 32px;
+  margin-bottom: 33px;
 }
 
 .footer .container .footer-header li {
@@ -1074,6 +1106,12 @@
   display: inline-block;
 }
 
+.footer .container .footer-content .footer-content-left address::after {
+  color: #b4b3b2;
+  content: "|";
+  margin-left: 4px;
+}
+
 .footer
   .container
   .footer-content
@@ -1081,7 +1119,6 @@
   div
   span:nth-of-type(3) {
   margin-right: 0;
-  padding-left: 8px;
 }
 
 .footer
@@ -1090,23 +1127,9 @@
   .footer-content-left
   div
   span:nth-of-type(3)::before {
-  position: absolute;
-  top: 3px;
-  left: 0;
-  content: "";
-  display: block;
-  width: 1px;
-  height: 12px;
-  background-color: #b4b3b2;
-}
-
-.footer
-  .container
-  .footer-content
-  .footer-content-left
-  div
-  span:nth-of-type(2) {
-  padding-left: 8px;
+  color: #b4b3b2;
+  content: "|";
+  margin-right: 8px;
 }
 
 .footer
@@ -1115,23 +1138,20 @@
   .footer-content-left
   div
   span:nth-of-type(2)::before {
-  position: absolute;
-  top: 3px;
-  left: 0;
-  content: "";
-  display: block;
-  width: 1px;
-  height: 12px;
-  background-color: #b4b3b2;
+  color: #b4b3b2;
+  content: "|";
+  margin-right: 8px;
 }
 
 .footer .container .footer-content .footer-content-left address {
   display: inline-block;
   font-style: normal;
+  margin-right: 4px;
 }
 
 .footer .container .footer-content .footer-content-right {
   text-align: right;
+  color: #403f3e;
 }
 
 .footer .container .footer-content .footer-content-right p {
@@ -1149,12 +1169,14 @@
 .footer .container .footer-mark {
   position: relative;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .footer .container .footer-mark .footer-mark-left {
   display: flex;
-  flex-grow: 1;
   gap: 12px;
+  margin-bottom: 24px;
 }
 
 .footer .container .footer-mark .footer-mark-left img {
@@ -1180,13 +1202,18 @@
   color: #403f3e;
   background-color: #f0f0f0;
   padding: 0 16px;
-  height: 40px;
+  height: 2.75rem;
   font-weight: 300;
   line-height: 1.5;
   font-size: 16px;
   cursor: pointer;
   display: flex;
   align-items: center;
+}
+
+.footer .container .footer-mark button:hover {
+  box-shadow: rgba(0, 0, 0, 0.1) 100rem 100rem inset;
+  background-color: #f0f0f0;
 }
 
 .footer .container .footer-mark button:after {
@@ -1200,7 +1227,7 @@
 
 .footer .container .footer-mark ul {
   position: absolute;
-  bottom: 52px;
+  bottom: 63px;
   right: 0;
   width: 200px;
   padding: 16px 0px;
@@ -1225,4 +1252,8 @@
 
 .footer .container .footer-mark button.on + ul {
   display: block;
+}
+
+.footer .container .footer-mark button.on + ul li:hover a {
+  color: #fa6600;
 }
